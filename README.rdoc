@@ -1,0 +1,16 @@
+= jawurflex
+
+WURFL patch containing data for Japanese handsets from the three major
+carriers (docomo, au, and SoftBank).  Additionally, tools for parsing the
+carrier documentation and generating the patch from it.
+
+== LICENSE
+
+The source code for generating wurfl is licensed under the BSD License, as
+specified in LICENSE.
+
+We be believe, like the base WURFL, the WURFL patch itself to be in the public
+domain, and as such no license is required for the patch.  However, if you are
+worried this is not the case, you may license in under the same BSD License as
+the source.
+
