@@ -34,6 +34,18 @@ class DocomoHandsetTest < Test::Unit::TestCase
     assert_equal 320, h.browser_height
     assert_equal 480, h.display_width
     assert_equal 854, h.display_height
+
+    valid_xhtml_markup_types = ["1_0", "1_1", "2_0", "2_1", "2_2", "2_3" ].
+      map {|i| "imode_xhtml_#{i}"}
+    valid_html_markup_types = (1..7).
+      map {|i| "imode_html_#{i}_0"} + ["imode_html_7_1", "imode_html_7_2" ]
+    valid_markup_types = valid_xhtml_markup_types + valid_html_markup_types + 
+      [ "imode_browser_2_0_xhtml"]
+    handsets.each do |h|
+      h.markup.each do |m|
+        assert valid_markup_types.include?(m), "#{h.device_id}: #{m} does not exist"
+      end
+    end
   end
 
 end
