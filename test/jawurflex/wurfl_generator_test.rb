@@ -26,7 +26,7 @@ class WurflGeneratorTest < Test::Unit::TestCase
 
   def test_n_08a
     device = @handsets['docomo_n_08a_ver1']
-    assert_equal "DoCoMo/2.0 N08A", device.user_agent
+    assert_equal "DoCoMo/2.0 N08A3", device.user_agent
     assert_equal "240", device["resolution_width"]
     assert_equal "320", device["resolution_height"]
   end
