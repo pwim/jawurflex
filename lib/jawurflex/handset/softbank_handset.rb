@@ -16,19 +16,17 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
   def self.parse_handsets
     device_name_to_handset = {} 
     parse_user_agent_data(device_name_to_handset)
+    parse_header_data(device_name_to_handset)
     return device_name_to_handset.values
     csv = FasterCSV.open("#{Jawurflex.data_directory}/softbank/terminal/index.html")
     headers = csv.shift
     data = csv.map do |r|
       h = new(:name => r[NAME].match(/[^\r]*/)[0], 
               :device_id => r[X_JPHONE_NAME].strip)
-      h.display_width, h.display_height = r[X_JPHONE_DISPLAY].
-        split("*").map {|s| s.to_i}
       h.browser_width, h.browser_height = r[BROWSER_DISPLAY_AREA].
         match(/(\d+) x (\d+)/)[1,2].map {|s| s.to_i }
       h.markup << (r[GENERATION] == "3GC" ? 'softbank_xhtml_mp' : "mml")
       h.flash_lite = r[FLASH] =~ /Flash Lite\[TM\](\d\.\d)/ ? $1 : nil
-      h.colors = r[X_JPHONE_COLOR].match(/\d+/)[0].to_i
       h
     end
   end
@@ -42,6 +40,20 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
         h = new(:name => strip_name(model_name))
         h.user_agent = user_agent =~ /(.+)\[\/Serial\].*/ ? $1 : user_agent
         device_name_to_handset[h.name] = h
+      end
+    end
+  end
+
+  def self.parse_header_data(device_name_to_handset)
+    s = Kconv.toutf8(open("#{Jawurflex.data_directory}/softbank/terminal/\?1up\=y\&cat\=http").read)
+    Hpricot(s).search("table/tr[@bgcolor='#FFFFFF']").each do |r|
+      columns = r.search("td")
+      if columns.size == 8
+        model_name, jphone_name, jphone_display, jphone_colors, others = columns.map {|c| c.innerText }
+        h = device_name_to_handset[strip_name(model_name)]
+        h.display_width, h.display_height = jphone_display.split("*").map {|s| s.to_i}
+        h.colors = jphone_colors.match(/\d+/)[0].to_i
+        h.device_id = jphone_name.strip
       end
     end
   end
