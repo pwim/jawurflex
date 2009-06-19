@@ -15,12 +15,13 @@ class Jawurflex::WurflMapper
     @groups ||= {}
   end
 
+  capabilitity_group("image_format",
+                     :colors => :colors)
   capabilitity_group("display", 
                      :browser_width => :resolution_width,
                      :browser_height => :resolution_height,
                      :display_height => :max_image_height,
-                     :display_width => :max_image_width,
-                     :colors => :colors)
+                     :display_width => :max_image_width)
   capabilitity_group("product_info", 
                      :brand_name => :brand_name,
                      :name => :model_name)
