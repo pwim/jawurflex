@@ -25,7 +25,6 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
               :device_id => r[X_JPHONE_NAME].strip)
       h.browser_width, h.browser_height = r[BROWSER_DISPLAY_AREA].
         match(/(\d+) x (\d+)/)[1,2].map {|s| s.to_i }
-      h.markup << (r[GENERATION] == "3GC" ? 'softbank_xhtml_mp' : "mml")
       h.flash_lite = r[FLASH] =~ /Flash Lite\[TM\](\d\.\d)/ ? $1 : nil
       h
     end
@@ -39,6 +38,7 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
         model_name, user_agent = columns.map {|c| c.innerText}
         h = new(:name => strip_name(model_name))
         h.user_agent = user_agent =~ /(.+)\[\/Serial\].*/ ? $1 : user_agent
+        h.markup << (h.user_agent =~ /J-PHONE/ ? 'mml' : 'softbank_xhtml_mp')
         device_name_to_handset[h.name] = h
       end
     end
