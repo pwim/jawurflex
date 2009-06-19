@@ -74,4 +74,9 @@ class Jawurflex::WurflMapper
       handset.markup.first
     end
   end
+
+  undef :flash_lite_version
+  def flash_lite_version(handset)
+    handset.flash_lite && handset.flash_lite.tr(".","_")
+  end
 end

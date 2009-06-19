@@ -41,7 +41,7 @@ class WurflGeneratorTest < Test::Unit::TestCase
     assert_equal "DoCoMo/2.0 P07A3", device.user_agent
     assert_equal "240", device["resolution_width"]
     assert_equal "331", device["resolution_height"]
-    assert_equal "3.1", device["flash_lite_version"]
+    assert_equal "3_1", device["flash_lite_version"]
   end
 
   def test_width_and_height
