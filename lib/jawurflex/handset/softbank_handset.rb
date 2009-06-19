@@ -18,6 +18,7 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
     parse_user_agent_data(device_name_to_handset)
     parse_header_data(device_name_to_handset)
     parse_service_data(device_name_to_handset)
+    parse_display_data(device_name_to_handset)
     return device_name_to_handset.values
     csv = FasterCSV.open("#{Jawurflex.data_directory}/softbank/terminal/index.html")
     headers = csv.shift
@@ -63,10 +64,18 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
     s = Kconv.toutf8(open("#{Jawurflex.data_directory}/softbank/terminal/?lup=y&cat=service").read)
     Hpricot(s).search("table/tr[@bgcolor='#FFFFFF']").each do |r|
       columns = r.search("td")
-      if columns.size == 8
-        h = device_name_to_handset[strip_name(columns[0].innerText)]
-      end
+      h = device_name_to_handset[strip_name(columns[0].innerText)]
       h.flash_lite = columns[3].innerText =~ /Flash Lite\?(\d\.\d)/ ? $1 : nil
+    end
+  end
+
+  def self.parse_display_data(device_name_to_handset)
+    s = Kconv.toutf8(open("#{Jawurflex.data_directory}/softbank/terminal/?lup=y&cat=display").read)
+    Hpricot(s).search("table/tr[@bgcolor='#FFFFFF']").each do |r|
+      columns = r.search("td")
+      h = device_name_to_handset[strip_name(columns[0].innerText)]
+      h.browser_width, h.browser_height = columns[1].innerText.  
+        match(/(\d+) x (\d+)/)[1,2].map {|s| s.to_i }
     end
   end
 
