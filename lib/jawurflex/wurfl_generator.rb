@@ -79,18 +79,18 @@ class Jawurflex::WurflGenerator
         end
       end
       b.devices do |b|
-        wurfl_mapper.wurfl_entry(b, base_softbank, generic_xhtml)
+        wurfl_mapper.wurfl_entry(b, base_softbank, generic_xhtml, false)
         Jawurflex::Handset::SoftbankHandset.parse_handsets.each do |h|
-          wurfl_mapper.wurfl_entry(b, h, base_softbank)
+          wurfl_mapper.wurfl_entry(b, h, base_softbank, true)
         end
 
-        wurfl_mapper.wurfl_entry(b, base_au, generic_xhtml)
+        wurfl_mapper.wurfl_entry(b, base_au, generic_xhtml, false)
         Jawurflex::Handset::AuHandset.parse_handsets.each do |h|
-          wurfl_mapper.wurfl_entry(b, h, base_au)
+          wurfl_mapper.wurfl_entry(b, h, base_au, true)
         end
 
-        wurfl_mapper.wurfl_entry(b, base_docomo, base_docomo_fallback)
-        wurfl_mapper.wurfl_entry(b, base_docomo_2_0_browser, generic_xhtml)
+        wurfl_mapper.wurfl_entry(b, base_docomo, base_docomo_fallback, false)
+        wurfl_mapper.wurfl_entry(b, base_docomo_2_0_browser, generic_xhtml, false)
         Jawurflex::Handset::DocomoHandset.parse_handsets.each do |h|
 
           fallback = if h.markup.first == "imode_browser_2_0_xhtml" 
@@ -100,7 +100,7 @@ class Jawurflex::WurflGenerator
           else
             base_docomo_fallback
           end
-          wurfl_mapper.wurfl_entry(b, h, fallback)
+          wurfl_mapper.wurfl_entry(b, h, fallback, true)
         end
       end
     end

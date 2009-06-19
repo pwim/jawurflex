@@ -24,17 +24,19 @@ class Jawurflex::WurflMapper
   capabilitity_group("product_info", 
                      :brand_name => :brand_name,
                      :name => :model_name)
-  capabilitity_group("flash",
+  capabilitity_group("flash_lite",
                      :flash_lite => :flash_lite_version)
   capabilitity_group("xhtml_ui",
                      :xhtml_table_support => :xhtml_table_support)
   capabilitity_group("markup",
                      :markup => :preferred_markup)
 
-  def wurfl_entry(b, handset, fallback)
-    b.device(:user_agent => handset.user_agent,
-             :fall_back => wurfl_id(fallback),
-             :id => wurfl_id(handset)) do |b|
+  def wurfl_entry(b, handset, fallback, actual_device_root)
+    h = { :user_agent => handset.user_agent,
+          :fall_back => wurfl_id(fallback),
+          :id => wurfl_id(handset)}
+    h[:actual_device_root] = "true" if actual_device_root
+    b.device(h) do |b|
       self.class.capabilitity_groups.each do |g,names|
         capabilitities(b,handset,fallback,g, *names)
       end
