@@ -13,7 +13,7 @@ require "jawurflex"
   "http://www.au.kddi.com/ezfactory/tec/spec/4_4.html" => "au/4_4.html",
   "http://www.au.kddi.com/ezfactory/tec/spec/new_win/ezkishu.html" => "au/ezkishu.html",
   "http://creation.mb.softbank.jp/terminal/?lup=y&cat=ua" => "softbank/terminal/?lup=y&cat=ua",
-  "http://creation.mb.softbank.jp/terminal/?lup=y&cat=http" => "softbank/terminal/?1up=y&cat=http",
+  "http://creation.mb.softbank.jp/terminal/?lup=y&cat=http" => "softbank/terminal/?lup=y&cat=http",
   "http://creation.mb.softbank.jp/terminal/?lup=y&cat=service" => "softbank/terminal/?lup=y&cat=service",
   "http://creation.mb.softbank.jp/terminal/?lup=y&cat=display" => "softbank/terminal/?lup=y&cat=display"
 }.each do |k,v|
