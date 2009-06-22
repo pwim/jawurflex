@@ -20,16 +20,6 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
     parse_service_data(device_name_to_handset)
     parse_display_data(device_name_to_handset)
     return device_name_to_handset.values
-    csv = FasterCSV.open("#{Jawurflex.data_directory}/softbank/terminal/index.html")
-    headers = csv.shift
-    data = csv.map do |r|
-      h = new(:name => r[NAME].match(/[^\r]*/)[0], 
-              :device_id => r[X_JPHONE_NAME].strip)
-      h.browser_width, h.browser_height = r[BROWSER_DISPLAY_AREA].
-        match(/(\d+) x (\d+)/)[1,2].map {|s| s.to_i }
-      h.flash_lite = r[FLASH] =~ /Flash Lite\[TM\](\d\.\d)/ ? $1 : nil
-      h
-    end
   end
 
   def self.parse_user_agent_data(device_name_to_handset)
