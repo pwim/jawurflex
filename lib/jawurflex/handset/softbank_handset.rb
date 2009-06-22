@@ -19,7 +19,16 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
     parse_header_data(device_name_to_handset)
     parse_service_data(device_name_to_handset)
     parse_display_data(device_name_to_handset)
-    return device_name_to_handset.values
+    # Softbank has some old devices with multiple versions where the user agent
+    # is the same, i.e., 812SH s2 and 812SH s.  In this case, choose the device
+    # that has the name that is highest in lexographical order
+    user_agents_to_handsets = Hash.new {|h,k| h[k] = []}
+    device_name_to_handset.values.each do |h|
+      user_agents_to_handsets[h.user_agent] << h
+    end
+    return user_agents_to_handsets.map do |k,v| 
+      v.max {|a,b| a.name <=> b.name }
+    end
   end
 
   def self.parse_user_agent_data(device_name_to_handset)

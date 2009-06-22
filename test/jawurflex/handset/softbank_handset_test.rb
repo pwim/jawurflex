@@ -31,6 +31,8 @@ class SoftbankHandsetTest < Test::Unit::TestCase
     handset = handsets.find {|h| h.device_id == "J-PE03B" }
     assert_equal "J-PE03\342\205\241", handset.name
 
+    handset = handsets.find {|h| h.device_id == "812SHs" }
+    assert_equal "812SH s2", handset.name
     user_agents_to_handsets = Hash.new {|h,k| h[k] = []}
     handsets.each do |h|
       user_agents_to_handsets[h.user_agent] << h
