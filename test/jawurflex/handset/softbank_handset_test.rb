@@ -27,6 +27,16 @@ class SoftbankHandsetTest < Test::Unit::TestCase
     handset = handsets.find {|h| h.device_id == "J-DN02" }
     assert_equal 4, handset.colors
     assert_equal [ "mml" ], handset.markup
+
+    handset = handsets.find {|h| h.device_id == "J-PE03B" }
+    assert_equal "J-PE03\342\205\241", handset.name
+
+    user_agents_to_handsets = Hash.new {|h,k| h[k] = []}
+    handsets.each do |h|
+      user_agents_to_handsets[h.user_agent] << h
+    end
+    user_agents = user_agents_to_handsets.find_all {|k,v| v.size > 1 }.map {|k,v| k}
+    assert_equal [], user_agents
   end
 end
 
