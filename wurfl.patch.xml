@@ -1,7 +1,7 @@
 <wurfl_patch>
   <version>
-    <ver>jawurflex - 2009-06-22 14:42:59</ver>
-    <last_updated>Mon Jun 22 14:42:59 +0900 2009</last_updated>
+    <ver>jawurflex - 2009-06-30 14:18:56</ver>
+    <last_updated>Tue Jun 30 14:18:56 +0900 2009</last_updated>
     <maintainers>
       <maintainer email="info@mobalean.com" home_page="http://www.mobalean.com" name="mobalean"/>
     </maintainers>
@@ -190,6 +190,20 @@
         <capability value="J-SH04B" name="model_name"/>
       </group>
     </device>
+    <device actual_device_root="true" fall_back="softbank_generic" id="softbank_930n_ver1" user_agent="SoftBank/1.0/930N/NJ001">
+      <group id="flash_lite">
+        <capability value="3_0" name="flash_lite_version"/>
+      </group>
+      <group id="display">
+        <capability value="480" name="resolution_width"/>
+        <capability value="650" name="resolution_height"/>
+        <capability value="854" name="max_image_height"/>
+        <capability value="480" name="max_image_width"/>
+      </group>
+      <group id="product_info">
+        <capability value="930N" name="model_name"/>
+      </group>
+    </device>
     <device actual_device_root="true" fall_back="softbank_generic" id="softbank_705nk_ver1" user_agent="SoftBank/1.0/705NK/NKJ001">
       <group id="display">
         <capability value="267" name="resolution_height"/>
@@ -291,6 +305,20 @@
       </group>
       <group id="product_info">
         <capability value="933SH" name="model_name"/>
+      </group>
+    </device>
+    <device actual_device_root="true" fall_back="softbank_generic" id="softbank_931sc_ver1" user_agent="SoftBank/1.0/931SC/SCJ001">
+      <group id="flash_lite">
+        <capability value="3_0" name="flash_lite_version"/>
+      </group>
+      <group id="display">
+        <capability value="471" name="resolution_width"/>
+        <capability value="512" name="resolution_height"/>
+        <capability value="800" name="max_image_height"/>
+        <capability value="480" name="max_image_width"/>
+      </group>
+      <group id="product_info">
+        <capability value="931SC" name="model_name"/>
       </group>
     </device>
     <device actual_device_root="true" fall_back="softbank_generic" id="softbank_v401sh_ver1" user_agent="J-PHONE/3.0/V401SH">
