@@ -24,7 +24,7 @@ class Jawurflex::Handset::AuHandset < Jawurflex::Handset
       h = new(:name => columns[0])
       h.device_id = name_to_device_id[h.name]
       raise "No matching device_id for #{h.name}" unless h.device_id
-      h.user_agent = "KDDI-#{h.device_id} UP.Browser"
+      h.user_agent = "KDDI-#{h.device_id}"
       h.display_width, h.display_height = columns[5].split("\303\227").map {|s| s.to_i}
       h.browser_width, h.browser_height = columns[4].split("\303\227").map {|s| s.to_i}
       h.markup << "au_xhtml_mp"
