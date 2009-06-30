@@ -87,6 +87,9 @@ class Jawurflex::WurflGenerator
         wurfl_mapper.wurfl_entry(b, base_au, generic_xhtml, false)
         Jawurflex::Handset::AuHandset.parse_handsets.each do |h|
           base_handset = base_wurfl_handsets[wurfl_mapper.wurfl_id(h)]
+          if base_handset && base_handset.user_agent =~ /UP.Browser/
+            h.user_agent = base_handset.user_agent
+          end
           wurfl_mapper.wurfl_entry(b, h, base_au, true)
         end
 
