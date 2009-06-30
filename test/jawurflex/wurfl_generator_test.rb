@@ -67,8 +67,7 @@ class WurflGeneratorTest < Test::Unit::TestCase
     @handsets.each do |id, h|
       base = @base_handsets[id]
       if base && !bad_base_user_agent?(base)
-        puts "#{h.wurfl_id}, #{h.user_agent}, #{base.user_agent}" if base.user_agent != h.user_agent
-        #assert_equal base.user_agent, h.user_agent
+        assert_equal base.user_agent, h.user_agent
       end
     end
   end
@@ -123,6 +122,23 @@ class WurflGeneratorTest < Test::Unit::TestCase
       "SoftBank/1.0/822SH/SHJ001 Browser/NetFront/3.4 Profile/MIDP-2.0 Configuration/CLDC-1.1" => true,
       "SoftBank/1.0/820SH/SHJ001 Browser/NetFront/3.4 Profile/MIDP-2.0 Configuration/CLDC-1.1" => true,
       "SoftBank/1.0/705SC/SCJ001 Browser/NetFront/3.3 Profile/MIDP-2.0 Configuration/CLDC-1.1" => true,
+      "DoCoMo/1.0/P506iC/c20/TB/W30H14" => true,
+      "DoCoMo/2.0 F704i(c100;TB;W23H12)" => true,
+      "DoCoMo/2.0 L602i(c100;TB;W21H11)" => true,
+      "Mozilla/4.08 (N905i;FOMA;c500;TB)" => true,
+      "Mozilla/5.0 (SO905i; FOMA; like Gecko)" => true,
+      "Mozilla/4.08 (N706i;FOMA;c500;TB)" => true,
+      "Mozilla/5.0 (F906i;FOMA;like Gecko)" => true,
+      "Mozilla/4.08 (D903i;FOMA;c300;TB)" => true,
+      "Mozilla/4.08 (F903i;FOMA;c300;TB)" => true,
+      "Mozilla/5.0 (SH906i;FOMA;like Gecko)" => true,
+      "Mozilla/4.08 (D904i;FOMA;c500;TB)" => true,
+      "Mozilla/5.0 (SO905iCS; FOMA; like Gecko)" => true,
+      "Mozilla/4.08 (F904i;FOMA;c500;TB)" => true,
+      "Mozilla/4.08 (P905iTV;FOMA;c500;TB)" => true,
+      "Mozilla/4.08 (N904i_W;FOMA;c500;TB)" => true,
+      "Mozilla/5.0 (F905i;FOMA;like Gecko)" => true,
+      "Mozilla/5.0 (N906i;FOMA;like Gecko)" => true,
     }
     @uas[h.user_agent]
   end
