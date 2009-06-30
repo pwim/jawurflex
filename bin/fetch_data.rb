@@ -15,7 +15,8 @@ require "jawurflex"
   "http://creation.mb.softbank.jp/terminal/?lup=y&cat=ua" => "softbank/terminal/?lup=y&cat=ua",
   "http://creation.mb.softbank.jp/terminal/?lup=y&cat=http" => "softbank/terminal/?lup=y&cat=http",
   "http://creation.mb.softbank.jp/terminal/?lup=y&cat=service" => "softbank/terminal/?lup=y&cat=service",
-  "http://creation.mb.softbank.jp/terminal/?lup=y&cat=display" => "softbank/terminal/?lup=y&cat=display"
+  "http://creation.mb.softbank.jp/terminal/?lup=y&cat=display" => "softbank/terminal/?lup=y&cat=display",
+  "http://jaist.dl.sourceforge.net/sourceforge/wurfl/wurfl-latest.xml.gz" => "wurfl-latest.xml.gz"
 }.each do |k,v|
   path = File.join(Jawurflex.data_directory, v)
   FileUtils.mkdir_p(File.dirname(path))
@@ -26,3 +27,6 @@ FileUtils.cd(File.join(Jawurflex.data_directory, "docomo")) do
   `pdftotext -layout -nopgbrk -enc UTF-8 -eol unix imode_spec.pdf`
 end
 
+FileUtils.cd(Jawurflex.data_directory) do
+  `gunzip wurfl-latest.xml.gz`
+end
