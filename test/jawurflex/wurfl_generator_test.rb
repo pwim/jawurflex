@@ -9,12 +9,14 @@ class WurflGeneratorTest < Test::Unit::TestCase
   def setup
     # generate only once for performance
     unless defined?(@@handsets)
+      base_wurfl = File.join(File.dirname(__FILE__), "..", "data", "wurfl.xml") 
+      @@base_handsets, fallbacks = Wurfl::Loader.new.load_wurfl(base_wurfl)
+      s = Jawurflex::WurflGenerator.generate_wurfl(@@base_handsets)
       loader = Wurfl::Loader.new
-      s = Jawurflex::WurflGenerator.generate_wurfl
-      patch_handsets, fallbacks = loader.parse_xml(s)
-      @@patch_handsets = patch_handsets.keys
-      @@handsets, fallbacks = loader.load_wurfl(File.join(File.dirname(__FILE__), "..", "data", "wurfl.xml"))
+      loader.load_wurfl(base_wurfl)
+      @@handsets, fallbacks = loader.parse_xml(s)
     end
+    @base_handsets = @@base_handsets
     @handsets = @@handsets
   end
 
@@ -44,6 +46,14 @@ class WurflGeneratorTest < Test::Unit::TestCase
     assert_equal "3_1", device["flash_lite_version"]
   end
 
+  def test_pt35
+    device = @handsets['kddi_pt35_ver1']
+    assert_equal "230", device['resolution_width']
+    assert_equal "324", device['resolution_height']
+    assert_equal "400", device['max_image_height']
+    assert_equal "KDDI-PT35 UP.Browser/6.2.0.15.1.1 (GUI) MMP/2.0", device.user_agent
+  end
+
   def test_width_and_height
     @handsets.each do |id, h|
       unless id =~ /generic/
@@ -51,6 +61,15 @@ class WurflGeneratorTest < Test::Unit::TestCase
         assert !h["resolution_height"].to_s.empty?, "#{id} does not have height"
       end
     end
+  end
+
+  def test_user_agent_doesn_t_differ
+    a = []
+    @handsets.each do |id, h|
+      base = @base_handsets[id]
+      a << h if base && base.user_agent != h.user_agent
+    end
+    assert a.empty?, a.map {|h| "#{h.user_agent} was expected to be #{@base_handsets[h.wurfl_id].user_agent}" }.join("\n")
   end
 end
 

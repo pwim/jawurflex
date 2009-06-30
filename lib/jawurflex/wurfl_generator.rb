@@ -11,7 +11,7 @@ end
 
 class Jawurflex::WurflGenerator
 
-  def self.generate_wurfl
+  def self.generate_wurfl(base_wurfl_handsets)
     wurfl_mapper = Jawurflex::WurflMapper.new
 
     generic_xhtml = Jawurflex::Handset.new(
@@ -86,6 +86,7 @@ class Jawurflex::WurflGenerator
 
         wurfl_mapper.wurfl_entry(b, base_au, generic_xhtml, false)
         Jawurflex::Handset::AuHandset.parse_handsets.each do |h|
+          base_handset = base_wurfl_handsets[wurfl_mapper.wurfl_id(h)]
           wurfl_mapper.wurfl_entry(b, h, base_au, true)
         end
 
