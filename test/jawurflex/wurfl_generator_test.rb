@@ -54,6 +54,14 @@ class WurflGeneratorTest < Test::Unit::TestCase
     assert_equal "KDDI-PT35 UP.Browser/6.2.0.15.1.1 (GUI) MMP/2.0", device.user_agent
   end
 
+  def test_docomo_so905ics_ver1
+    device = @handsets['docomo_so905ics_ver1']
+    assert_equal "864", device['max_image_height']
+    assert_equal "480", device['max_image_width']
+    assert_equal "240", device['resolution_width']
+    assert_equal "368", device['resolution_height']
+  end
+
   def test_width_and_height
     @handsets.each do |id, h|
       unless id =~ /generic/
