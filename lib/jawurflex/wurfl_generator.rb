@@ -11,7 +11,7 @@ end
 
 class Jawurflex::WurflGenerator
 
-  def self.generate_wurfl(base_wurfl_handsets)
+  def self.generate_wurfl(base_wurfl_handsets, target)
     wurfl_mapper = Jawurflex::WurflMapper.new
 
     generic_xhtml = Jawurflex::Handset.new(
@@ -66,7 +66,7 @@ class Jawurflex::WurflGenerator
       :colors => 262144,
       :flash_lite => "3.1")
 
-    b = Builder::XmlMarkup.new(:indent => 2)
+    b = Builder::XmlMarkup.new(:indent => 2, :target => target)
     xml = b.wurfl_patch do |b|
       b.version do |b|
         t = Time.now

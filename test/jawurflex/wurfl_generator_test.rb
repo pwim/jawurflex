@@ -4,17 +4,21 @@ require "test/unit"
 require "hpricot"
 require "wurfl/loader"
 require "jawurflex/wurfl_generator"
+require "tempfile"
 
 class WurflGeneratorTest < Test::Unit::TestCase
   def setup
     # generate only once for performance
     unless defined?(@@handsets)
+      @@handsets = nil 
       base_wurfl = File.join(File.dirname(__FILE__), "..", "data", "wurfl.xml") 
-      @@base_handsets, fallbacks = Wurfl::Loader.new.load_wurfl(base_wurfl)
-      s = Jawurflex::WurflGenerator.generate_wurfl(@@base_handsets)
+      @@base_handsets = Wurfl::Loader.new.load_wurfl(base_wurfl)
+      patch = Tempfile.new("wurfl.patch.xml")
+      Jawurflex::WurflGenerator.generate_wurfl(@@base_handsets, patch)
+      patch.close
       loader = Wurfl::Loader.new
       loader.load_wurfl(base_wurfl)
-      @@handsets, fallbacks = loader.parse_xml(s)
+      @@handsets = loader.load_wurfl(patch.path)
     end
     @base_handsets = @@base_handsets
     @handsets = @@handsets
