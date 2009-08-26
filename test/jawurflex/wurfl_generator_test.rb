@@ -10,8 +10,8 @@ class WurflGeneratorTest < Test::Unit::TestCase
   def setup
     # generate only once for performance
     unless defined?(@@handsets)
-      @@handsets = nil 
-      base_wurfl = File.join(File.dirname(__FILE__), "..", "data", "wurfl.xml") 
+      @@handsets = nil
+      base_wurfl = File.join(File.dirname(__FILE__), "..", "data", "wurfl.xml")
       @@base_handsets = Wurfl::Loader.new.load_wurfl(base_wurfl)
       patch = Tempfile.new("wurfl.patch.xml")
       Jawurflex::WurflGenerator.generate_wurfl(@@base_handsets, patch)
@@ -66,6 +66,15 @@ class WurflGeneratorTest < Test::Unit::TestCase
     assert_equal "368", device['resolution_height']
   end
 
+  def test_f_10a
+    device = @handsets['docomo_f_10a_ver1']
+    assert_equal "DoCoMo/2.0 F10A", device.user_agent
+    assert_equal "240", device["resolution_width"]
+    assert_equal "330", device["resolution_height"]
+    assert_equal "3_0", device["flash_lite_version"]
+    assert_equal "html_wi_imode_htmlx_2_2", device["preferred_markup"]
+  end
+
   def test_width_and_height
     @handsets.each do |id, h|
       unless id =~ /generic/
@@ -85,7 +94,7 @@ class WurflGeneratorTest < Test::Unit::TestCase
   end
 
   def bad_base_user_agent?(h)
-    @uas ||= { 
+    @uas ||= {
       "SoftBank/1.0/921P/PJP10/SN353701021200197 Browser/NetFront/3.4 Profile/MIDP-2.0 Configuration/CLDC-1.1" => true,
       "SoftBank/1.0/823SH/SHJ001/SN358030010389935 Browser/NetFront/3.4 Profile/MIDP-2.0 Configuration/CLDC-1.1" => true,
       "SoftBank/1.0/DM002SH/SHJ001/SNXXXXXXXXXXXXXXX Browser/NetFront/3.4 Profile/MIDP-2.0 Configuration/CLDC-1.1" => true,

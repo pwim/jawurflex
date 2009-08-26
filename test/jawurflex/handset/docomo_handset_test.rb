@@ -39,7 +39,7 @@ class DocomoHandsetTest < Test::Unit::TestCase
       map {|i| "imode_xhtml_#{i}"}
     valid_html_markup_types = (1..7).
       map {|i| "imode_html_#{i}_0"} + ["imode_html_7_1", "imode_html_7_2" ]
-    valid_markup_types = valid_xhtml_markup_types + valid_html_markup_types + 
+    valid_markup_types = valid_xhtml_markup_types + valid_html_markup_types +
       [ "imode_browser_2_0_xhtml"]
     handsets.each do |h|
       h.markup.each do |m|

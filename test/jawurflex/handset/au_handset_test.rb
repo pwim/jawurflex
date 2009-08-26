@@ -14,7 +14,7 @@ class AuHandsetTest < Test::Unit::TestCase
 
     h = handsets.find {|h| h.name == "A1303SA" }
     assert_equal 26*10000, h.colors
-    
+
     h = handsets.find {|h| h.name == "A5512CA" }
     assert_equal 6*10_000+5*1000, h.colors
 
