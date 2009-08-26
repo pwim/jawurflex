@@ -14,7 +14,7 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
   BROWSER_DISPLAY_AREA = 23
 
   def self.parse_handsets
-    device_name_to_handset = {} 
+    device_name_to_handset = {}
     parse_user_agent_data(device_name_to_handset)
     parse_header_data(device_name_to_handset)
     parse_service_data(device_name_to_handset)
@@ -26,7 +26,7 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
     device_name_to_handset.values.each do |h|
       user_agents_to_handsets[h.user_agent] << h
     end
-    return user_agents_to_handsets.map do |k,v| 
+    return user_agents_to_handsets.map do |k,v|
       v.max {|a,b| a.name <=> b.name }
     end
   end
@@ -64,7 +64,7 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
     Hpricot(s).search("table/tr[@bgcolor='#FFFFFF']").each do |r|
       columns = r.search("td")
       h = device_name_to_handset[strip_name(columns[0].innerText)]
-      h.flash_lite = columns[3].innerText =~ /Flash Lite\?(\d\.\d)/ ? $1 : nil
+      h.flash_lite = columns[3].innerText =~ /Flash Lite.*(\d\.\d)/ ? $1 : nil
     end
   end
 
@@ -73,7 +73,7 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
     Hpricot(s).search("table/tr[@bgcolor='#FFFFFF']").each do |r|
       columns = r.search("td")
       h = device_name_to_handset[strip_name(columns[0].innerText)]
-      h.browser_width, h.browser_height = columns[1].innerText.  
+      h.browser_width, h.browser_height = columns[1].innerText.
         match(/(\d+) x (\d+)/)[1,2].map {|s| s.to_i }
     end
   end
@@ -85,6 +85,6 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
   def brand_name
     "SoftBank"
   end
-  
+
 end
 

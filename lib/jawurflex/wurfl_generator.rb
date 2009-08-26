@@ -73,7 +73,7 @@ class Jawurflex::WurflGenerator
         b.ver("jawurflex - " << t.strftime("%Y-%m-%d %H:%M:%S"))
         b.last_updated(t.to_s)
         b.maintainers do |b|
-          b.maintainer(:name => "mobalean", 
+          b.maintainer(:name => "mobalean",
                        :email => "info@mobalean.com",
                        :home_page => "http://www.mobalean.com")
         end
@@ -97,10 +97,10 @@ class Jawurflex::WurflGenerator
         wurfl_mapper.wurfl_entry(b, base_docomo_2_0_browser, generic_xhtml, false)
         Jawurflex::Handset::DocomoHandset.parse_handsets.each do |h|
 
-          fallback = if h.markup.first == "imode_browser_2_0_xhtml" 
+          fallback = if h.markup.first == "imode_browser_2_0_xhtml"
             base_docomo_2_0_browser
           elsif h.user_agent =~ /#{base_docomo.user_agent}/
-            base_docomo 
+            base_docomo
           else
             base_docomo_fallback
           end

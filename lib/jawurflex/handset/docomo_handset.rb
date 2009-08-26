@@ -5,7 +5,7 @@ require 'jawurflex/handset'
 
 class Jawurflex::Handset::DocomoHandset < Jawurflex::Handset
   def self.parse_handsets
-    device_id_to_handset = {} 
+    device_id_to_handset = {}
     parse_user_agent_data(device_id_to_handset)
     parse_spec_data(device_id_to_handset)
     parse_screen_data(device_id_to_handset)
@@ -48,6 +48,12 @@ class Jawurflex::Handset::DocomoHandset < Jawurflex::Handset
       end
       browser_version, html_version, xhtml_version, flash_version =
         [0,1,2,5].map {|i| words[index+offset+i]}
+
+      ## exceptional device, has "-" in imode_spec file for browser version.
+      if ( h.device_id == "F-10A")
+        browser_version, html_version, xhtml_version, flash_version = "1.0", "7.1", "2.2", "3.0"
+      end
+
       if browser_version == "1.0"
         h.markup << "imode_html_#{html_version.tr('.','_')}"
         h.markup.unshift("imode_xhtml_#{xhtml_version.tr('.','_')}") if xhtml_version.to_f > 0
