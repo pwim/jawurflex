@@ -1,7 +1,7 @@
 <wurfl_patch>
   <version>
-    <ver>jawurflex - 2009-08-25 20:21:44</ver>
-    <last_updated>Tue Aug 25 20:21:44 +0900 2009</last_updated>
+    <ver>jawurflex - 2009-09-24 12:21:37</ver>
+    <last_updated>Thu Sep 24 12:21:37 +0900 2009</last_updated>
     <maintainers>
       <maintainer home_page="http://www.mobalean.com" name="mobalean" email="info@mobalean.com"/>
     </maintainers>
@@ -95,6 +95,18 @@
         <capability name="resolution_height" value="325"/>
       </group>
     </device>
+    <device user_agent="SoftBank/1.0/814T/TJ001" actual_device_root="true" fall_back="softbank_generic" id="softbank_814t_ver1">
+      <group id="flash_lite">
+        <capability name="flash_lite_version" value="2_0"/>
+      </group>
+      <group id="product_info">
+        <capability name="model_name" value="814T"/>
+      </group>
+      <group id="display">
+        <capability name="resolution_width" value="234"/>
+        <capability name="resolution_height" value="259"/>
+      </group>
+    </device>
     <device user_agent="SoftBank/1.0/820SC/SCJ001" actual_device_root="true" fall_back="softbank_generic" id="softbank_820sc_ver1">
       <group id="flash_lite">
         <capability name="flash_lite_version" value="2_0"/>
@@ -153,18 +165,6 @@
       </group>
       <group id="markup">
         <capability name="preferred_markup" value="html_wi_mml_html"/>
-      </group>
-    </device>
-    <device user_agent="SoftBank/1.0/814T/TJ001" actual_device_root="true" fall_back="softbank_generic" id="softbank_814t_ver1">
-      <group id="flash_lite">
-        <capability name="flash_lite_version" value="2_0"/>
-      </group>
-      <group id="product_info">
-        <capability name="model_name" value="814T"/>
-      </group>
-      <group id="display">
-        <capability name="resolution_width" value="234"/>
-        <capability name="resolution_height" value="259"/>
       </group>
     </device>
     <device user_agent="SoftBank/1.0/708SC/SCJ001" actual_device_root="true" fall_back="softbank_generic" id="softbank_708sc_ver1">
@@ -2053,6 +2053,15 @@
         <capability name="resolution_height" value="270"/>
       </group>
     </device>
+    <device user_agent="SoftBank/1.0/830SC/SCJ001" actual_device_root="true" fall_back="softbank_generic" id="softbank_830sc_ver1">
+      <group id="product_info">
+        <capability name="model_name" value="830SC"/>
+      </group>
+      <group id="display">
+        <capability name="resolution_width" value="232"/>
+        <capability name="resolution_height" value="264"/>
+      </group>
+    </device>
     <device user_agent="J-PHONE/2.0/J-SH03" actual_device_root="true" fall_back="softbank_generic" id="softbank_j_sh03_ver1">
       <group id="product_info">
         <capability name="model_name" value="J-SH03"/>
@@ -2261,6 +2270,18 @@
       </group>
       <group id="markup">
         <capability name="preferred_markup" value="html_wi_mml_html"/>
+      </group>
+    </device>
+    <device user_agent="SoftBank/1.0/831N/NJ001" actual_device_root="true" fall_back="softbank_generic" id="softbank_831n_ver1">
+      <group id="flash_lite">
+        <capability name="flash_lite_version" value="3_0"/>
+      </group>
+      <group id="product_info">
+        <capability name="model_name" value="831N"/>
+      </group>
+      <group id="display">
+        <capability name="max_image_height" value="427"/>
+        <capability name="resolution_height" value="325"/>
       </group>
     </device>
     <device user_agent="SoftBank/1.0/706N/NJ001" actual_device_root="true" fall_back="softbank_generic" id="softbank_706n_ver1">
@@ -6428,19 +6449,6 @@
         <capability name="preferred_markup" value="html_wi_imode_htmlx_2_1"/>
       </group>
     </device>
-    <device user_agent="DoCoMo/1.0/P253i" actual_device_root="true" fall_back="docomo_generic_jap_ver1" id="docomo_p253i_ver1">
-      <group id="product_info">
-        <capability name="model_name" value="P253i"/>
-      </group>
-      <group id="display">
-        <capability name="max_image_height" value="176"/>
-        <capability name="max_image_width" value="132"/>
-        <capability name="resolution_width" value="132"/>
-      </group>
-      <group id="markup">
-        <capability name="preferred_markup" value="html_wi_imode_html_5"/>
-      </group>
-    </device>
     <device user_agent="DoCoMo/2.0 F903iX" actual_device_root="true" fall_back="docomo_generic_jap_ver2" id="docomo_f903ix_ver1">
       <group id="flash_lite">
         <capability name="flash_lite_version" value="1_1"/>
@@ -6459,6 +6467,39 @@
       </group>
       <group id="markup">
         <capability name="preferred_markup" value="html_wi_imode_htmlx_2_1"/>
+      </group>
+    </device>
+    <device user_agent="DoCoMo/1.0/P253i" actual_device_root="true" fall_back="docomo_generic_jap_ver1" id="docomo_p253i_ver1">
+      <group id="product_info">
+        <capability name="model_name" value="P253i"/>
+      </group>
+      <group id="display">
+        <capability name="max_image_height" value="176"/>
+        <capability name="max_image_width" value="132"/>
+        <capability name="resolution_width" value="132"/>
+      </group>
+      <group id="markup">
+        <capability name="preferred_markup" value="html_wi_imode_html_5"/>
+      </group>
+    </device>
+    <device user_agent="DoCoMo/2.0 L06A" actual_device_root="true" fall_back="docomo_generic_jap_ver2" id="docomo_l_06a_ver1">
+      <group id="flash_lite">
+        <capability name="flash_lite_version" value="1_1"/>
+      </group>
+      <group id="product_info">
+        <capability name="model_name" value="L-06A"/>
+      </group>
+      <group id="xhtml_ui">
+        <capability name="xhtml_table_support" value="true"/>
+      </group>
+      <group id="display">
+        <capability name="max_image_height" value="800"/>
+        <capability name="max_image_width" value="480"/>
+        <capability name="resolution_width" value="240"/>
+        <capability name="resolution_height" value="313"/>
+      </group>
+      <group id="markup">
+        <capability name="preferred_markup" value="html_wi_imode_htmlx_2"/>
       </group>
     </device>
     <device user_agent="DoCoMo/2.0 SH702iD" actual_device_root="true" fall_back="docomo_generic_jap_ver2" id="docomo_sh702id_ver1">
@@ -6852,6 +6893,17 @@
       </group>
       <group id="markup">
         <capability name="preferred_markup" value="html_wi_imode_htmlx_1_1"/>
+      </group>
+    </device>
+    <device user_agent="DoCoMo/2.0 SH08A" actual_device_root="true" fall_back="docomo_2_0_browser_ver1" id="docomo_sh_08a_ver1">
+      <group id="product_info">
+        <capability name="model_name" value="SH-08A"/>
+      </group>
+      <group id="image_format">
+        <capability name="colors" value="16777216"/>
+      </group>
+      <group id="display">
+        <capability name="resolution_height" value="296"/>
       </group>
     </device>
     <device user_agent="DoCoMo/2.0 P01A" actual_device_root="true" fall_back="docomo_generic_jap_ver2" id="docomo_p_01a_ver1">
