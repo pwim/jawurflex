@@ -20,13 +20,16 @@ require "jawurflex"
 }.each do |k,v|
   path = File.join(Jawurflex.data_directory, v)
   FileUtils.mkdir_p(File.dirname(path))
+  $stderr.puts "Processing #{k}"
   open(k) {|a| open(path, "w") {|b| b.write(a.read)}}
 end
 
 FileUtils.cd(File.join(Jawurflex.data_directory, "docomo")) do
+  $stderr.puts "Processing docomo pdf"
   `pdftotext -layout -nopgbrk -enc UTF-8 -eol unix imode_spec.pdf`
 end
 
 FileUtils.cd(Jawurflex.data_directory) do
+  $stderr.puts "Unzipping wurfl"
   `gunzip wurfl-latest.xml.gz`
 end
