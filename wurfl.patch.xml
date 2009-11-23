@@ -1,7 +1,7 @@
 <wurfl_patch>
   <version>
-    <ver>jawurflex - 2009-10-22 17:39:20</ver>
-    <last_updated>Thu Oct 22 17:39:20 +0900 2009</last_updated>
+    <ver>jawurflex - 2009-11-23 11:10:04</ver>
+    <last_updated>Mon Nov 23 11:10:04 +0900 2009</last_updated>
     <maintainers>
       <maintainer home_page="http://www.mobalean.com" email="info@mobalean.com" name="mobalean"/>
     </maintainers>
@@ -288,6 +288,18 @@
       </group>
       <group id="product_info">
         <capability value="V601N" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="softbank_generic" user_agent="SoftBank/1.0/832SHs/SHJ001" id="softbank_832shs_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="3_0" name="flash_lite_version"/>
+      </group>
+      <group id="display">
+        <capability value="400" name="max_image_height"/>
+        <capability value="350" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="832SH s" name="model_name"/>
       </group>
     </device>
     <device fall_back="softbank_generic" user_agent="SoftBank/1.0/DM003SH/SHJ001" id="softbank_dm003sh_ver1" actual_device_root="true">
@@ -1341,6 +1353,23 @@
         <capability value="904T" name="model_name"/>
       </group>
     </device>
+    <device fall_back="softbank_generic" user_agent="SoftBank/1.0/936SH/SHJ001" id="softbank_936sh_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="3_0" name="flash_lite_version"/>
+      </group>
+      <group id="image_format">
+        <capability value="16777216" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="854" name="max_image_height"/>
+        <capability value="480" name="max_image_width"/>
+        <capability value="480" name="resolution_width"/>
+        <capability value="754" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="936SH" name="model_name"/>
+      </group>
+    </device>
     <device fall_back="softbank_generic" user_agent="J-PHONE/3.0/V201SH" id="softbank_v201sh_ver1" actual_device_root="true">
       <group id="display">
         <capability value="260" name="max_image_height"/>
@@ -1362,23 +1391,6 @@
       </group>
       <group id="product_info">
         <capability value="830SH Premium" name="model_name"/>
-      </group>
-    </device>
-    <device fall_back="softbank_generic" user_agent="SoftBank/1.0/936SH/SHJ001" id="softbank_936sh_ver1" actual_device_root="true">
-      <group id="flash_lite">
-        <capability value="3_0" name="flash_lite_version"/>
-      </group>
-      <group id="image_format">
-        <capability value="16777216" name="colors"/>
-      </group>
-      <group id="display">
-        <capability value="854" name="max_image_height"/>
-        <capability value="480" name="max_image_width"/>
-        <capability value="480" name="resolution_width"/>
-        <capability value="754" name="resolution_height"/>
-      </group>
-      <group id="product_info">
-        <capability value="936SH" name="model_name"/>
       </group>
     </device>
     <device fall_back="softbank_generic" user_agent="J-PHONE/2.0/J-SA02" id="softbank_j_sa02_ver1" actual_device_root="true">
@@ -3074,6 +3086,21 @@
         <capability value="A5517T" name="model_name"/>
       </group>
     </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-HI34" id="kddi_hi34_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="1_1" name="flash_lite_version"/>
+      </group>
+      <group id="image_format">
+        <capability value="65000" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="230" name="resolution_width"/>
+        <capability value="266" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="PENCK" name="model_name"/>
+      </group>
+    </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-TS36" id="kddi_ts36_ver1" actual_device_root="true">
       <group id="flash_lite">
         <capability value="1_1" name="flash_lite_version"/>
@@ -3097,21 +3124,6 @@
       </group>
       <group id="product_info">
         <capability value="W54S" name="model_name"/>
-      </group>
-    </device>
-    <device fall_back="kddi_wap20_generic" user_agent="KDDI-HI34" id="kddi_hi34_ver1" actual_device_root="true">
-      <group id="flash_lite">
-        <capability value="1_1" name="flash_lite_version"/>
-      </group>
-      <group id="image_format">
-        <capability value="65000" name="colors"/>
-      </group>
-      <group id="display">
-        <capability value="230" name="resolution_width"/>
-        <capability value="266" name="resolution_height"/>
-      </group>
-      <group id="product_info">
-        <capability value="PENCK" name="model_name"/>
       </group>
     </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-CA25" id="kddi_ca25_ver1" actual_device_root="true">
@@ -3150,6 +3162,21 @@
       </group>
       <group id="product_info">
         <capability value="INFOBAR" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-HI35" id="kddi_hi35_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="1_1" name="flash_lite_version"/>
+      </group>
+      <group id="image_format">
+        <capability value="65000" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="230" name="resolution_width"/>
+        <capability value="235" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="W32H" name="model_name"/>
       </group>
     </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-SA3E" id="kddi_sa3e_ver1" actual_device_root="true">
@@ -3193,21 +3220,6 @@
       </group>
       <group id="product_info">
         <capability value="W61S" name="model_name"/>
-      </group>
-    </device>
-    <device fall_back="kddi_wap20_generic" user_agent="KDDI-HI35" id="kddi_hi35_ver1" actual_device_root="true">
-      <group id="flash_lite">
-        <capability value="1_1" name="flash_lite_version"/>
-      </group>
-      <group id="image_format">
-        <capability value="65000" name="colors"/>
-      </group>
-      <group id="display">
-        <capability value="230" name="resolution_width"/>
-        <capability value="235" name="resolution_height"/>
-      </group>
-      <group id="product_info">
-        <capability value="W32H" name="model_name"/>
       </group>
     </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-ST23" id="kddi_st23_ver1" actual_device_root="true">
@@ -3878,6 +3890,19 @@
       </group>
       <group id="product_info">
         <capability value="W62K" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-SN3M" id="kddi_sn3m_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="2_0" name="flash_lite_version"/>
+      </group>
+      <group id="display">
+        <capability value="432" name="max_image_height"/>
+        <capability value="228" name="resolution_width"/>
+        <capability value="345" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="S002" name="model_name"/>
       </group>
     </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-SA28" id="kddi_sa28_ver1" actual_device_root="true">
@@ -4836,21 +4861,6 @@
         <capability value="A5527SA" name="model_name"/>
       </group>
     </device>
-    <device fall_back="kddi_wap20_generic" user_agent="KDDI-MA33" id="kddi_ma33_ver1" actual_device_root="true">
-      <group id="flash_lite">
-        <capability value="2_0" name="flash_lite_version"/>
-      </group>
-      <group id="image_format">
-        <capability value="260000" name="colors"/>
-      </group>
-      <group id="display">
-        <capability value="400" name="max_image_height"/>
-        <capability value="323" name="resolution_height"/>
-      </group>
-      <group id="product_info">
-        <capability value="W61P" name="model_name"/>
-      </group>
-    </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-SA34 UP.Browser/6.2.0.9.1 (GUI) MMP/2.0" id="kddi_sa34_ver1" actual_device_root="true">
       <group id="flash_lite">
         <capability value="1_1" name="flash_lite_version"/>
@@ -4864,6 +4874,21 @@
       </group>
       <group id="product_info">
         <capability value="W32SA" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-MA33" id="kddi_ma33_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="2_0" name="flash_lite_version"/>
+      </group>
+      <group id="image_format">
+        <capability value="260000" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="400" name="max_image_height"/>
+        <capability value="323" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="W61P" name="model_name"/>
       </group>
     </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-KC3Q" id="kddi_kc3q_ver1" actual_device_root="true">
@@ -4922,6 +4947,21 @@
         <capability value="A5301T" name="model_name"/>
       </group>
     </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-SA35" id="kddi_sa35_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="1_1" name="flash_lite_version"/>
+      </group>
+      <group id="image_format">
+        <capability value="260000" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="228" name="resolution_width"/>
+        <capability value="243" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="W33SA/SA II" name="model_name"/>
+      </group>
+    </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-MA34 UP.Browser/6.2.0.13.2 (GUI) MMP/2.0" id="kddi_ma34_ver1" actual_device_root="true">
       <group id="flash_lite">
         <capability value="2_0" name="flash_lite_version"/>
@@ -4937,19 +4977,21 @@
         <capability value="W62P" name="model_name"/>
       </group>
     </device>
-    <device fall_back="kddi_wap20_generic" user_agent="KDDI-SA35" id="kddi_sa35_ver1" actual_device_root="true">
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-KC3R" id="kddi_kc3r_ver1" actual_device_root="true">
       <group id="flash_lite">
-        <capability value="1_1" name="flash_lite_version"/>
+        <capability value="2_0" name="flash_lite_version"/>
       </group>
       <group id="image_format">
-        <capability value="260000" name="colors"/>
+        <capability value="262144" name="colors"/>
       </group>
       <group id="display">
-        <capability value="228" name="resolution_width"/>
-        <capability value="243" name="resolution_height"/>
+        <capability value="854" name="max_image_height"/>
+        <capability value="480" name="max_image_width"/>
+        <capability value="233" name="resolution_width"/>
+        <capability value="358" name="resolution_height"/>
       </group>
       <group id="product_info">
-        <capability value="W33SA/SA II" name="model_name"/>
+        <capability value="SA001" name="model_name"/>
       </group>
     </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-TS3K" id="kddi_ts3k_ver1" actual_device_root="true">
@@ -5048,6 +5090,21 @@
       </group>
       <group id="product_info">
         <capability value="E02SA" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-KC3T" id="kddi_kc3t_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="2_0" name="flash_lite_version"/>
+      </group>
+      <group id="image_format">
+        <capability value="262144" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="400" name="max_image_height"/>
+        <capability value="325" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="E07K" name="model_name"/>
       </group>
     </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-TS25" id="kddi_ts25_ver1" actual_device_root="true">
@@ -5236,6 +5293,19 @@
         <capability value="biblio" name="model_name"/>
       </group>
     </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-SH3A" id="kddi_sh3a_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="2_0" name="flash_lite_version"/>
+      </group>
+      <group id="display">
+        <capability value="400" name="max_image_height"/>
+        <capability value="234" name="resolution_width"/>
+        <capability value="331" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="E06SH" name="model_name"/>
+      </group>
+    </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-TS28" id="kddi_ts28_ver1" actual_device_root="true">
       <group id="image_format">
         <capability value="262114" name="colors"/>
@@ -5263,7 +5333,7 @@
         <capability value="W31K/K II" name="model_name"/>
       </group>
     </device>
-    <device fall_back="kddi_wap20_generic" user_agent="KDDI-TS3P" id="kddi_ts3p_ver1" actual_device_root="true">
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-TS3P UP.Browser/6.2_7.2.7.1. K.4.301 (GUI) MMP/2.0" id="kddi_ts3p_ver1" actual_device_root="true">
       <group id="flash_lite">
         <capability value="2_0" name="flash_lite_version"/>
       </group>
@@ -5317,20 +5387,6 @@
         <capability value="A5509T" name="model_name"/>
       </group>
     </device>
-    <device fall_back="kddi_wap20_generic" user_agent="KDDI-SH3B UP.Browser/6.2_7.2.7.1.K.3.349 (GUI) MMP/2.0" id="kddi_sh3b_ver1" actual_device_root="true">
-      <group id="flash_lite">
-        <capability value="2_0" name="flash_lite_version"/>
-      </group>
-      <group id="display">
-        <capability value="854" name="max_image_height"/>
-        <capability value="480" name="max_image_width"/>
-        <capability value="234" name="resolution_width"/>
-        <capability value="358" name="resolution_height"/>
-      </group>
-      <group id="product_info">
-        <capability value="SH002" name="model_name"/>
-      </group>
-    </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-KC34" id="kddi_kc34_ver1" actual_device_root="true">
       <group id="flash_lite">
         <capability value="1_1" name="flash_lite_version"/>
@@ -5344,6 +5400,20 @@
       </group>
       <group id="product_info">
         <capability value="W32K" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-SH3B UP.Browser/6.2_7.2.7.1.K.3.349 (GUI) MMP/2.0" id="kddi_sh3b_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="2_0" name="flash_lite_version"/>
+      </group>
+      <group id="display">
+        <capability value="854" name="max_image_height"/>
+        <capability value="480" name="max_image_width"/>
+        <capability value="234" name="resolution_width"/>
+        <capability value="358" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="SH002" name="model_name"/>
       </group>
     </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-TS3Q" id="kddi_ts3q_ver1" actual_device_root="true">
@@ -5433,6 +5503,20 @@
         <capability value="W41K" name="model_name"/>
       </group>
     </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-TS3R" id="kddi_ts3r_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="2_0" name="flash_lite_version"/>
+      </group>
+      <group id="display">
+        <capability value="854" name="max_image_height"/>
+        <capability value="480" name="max_image_width"/>
+        <capability value="233" name="resolution_width"/>
+        <capability value="358" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="T003" name="model_name"/>
+      </group>
+    </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-CA3C UP.Browser/6.2_7.2.7.1.K.2.214 (GUI) MMP/2.0" id="kddi_ca3c_ver1" actual_device_root="true">
       <group id="flash_lite">
         <capability value="2_0" name="flash_lite_version"/>
@@ -5447,6 +5531,20 @@
       </group>
       <group id="product_info">
         <capability value="W63CA" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-SH3D" id="kddi_sh3d_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="2_0" name="flash_lite_version"/>
+      </group>
+      <group id="display">
+        <capability value="854" name="max_image_height"/>
+        <capability value="480" name="max_image_width"/>
+        <capability value="234" name="resolution_width"/>
+        <capability value="358" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="SH003" name="model_name"/>
       </group>
     </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-KC36" id="kddi_kc36_ver1" actual_device_root="true">
@@ -5543,6 +5641,22 @@
         <capability value="W44K/K II" name="model_name"/>
       </group>
     </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-CA3F" id="kddi_ca3f_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="2_0" name="flash_lite_version"/>
+      </group>
+      <group id="image_format">
+        <capability value="262144" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="854" name="max_image_height"/>
+        <capability value="480" name="max_image_width"/>
+        <capability value="336" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="CA003" name="model_name"/>
+      </group>
+    </device>
     <device fall_back="kddi_wap20_generic" user_agent="KDDI-PT22" id="kddi_pt22_ver1" actual_device_root="true">
       <group id="image_format">
         <capability value="262114" name="colors"/>
@@ -5582,6 +5696,22 @@
       </group>
       <group id="product_info">
         <capability value="W51K" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="kddi_wap20_generic" user_agent="KDDI-CA3G" id="kddi_ca3g_ver1" actual_device_root="true">
+      <group id="flash_lite">
+        <capability value="2_0" name="flash_lite_version"/>
+      </group>
+      <group id="image_format">
+        <capability value="262144" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="800" name="max_image_height"/>
+        <capability value="480" name="max_image_width"/>
+        <capability value="336" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="CA004" name="model_name"/>
       </group>
     </device>
     <device fall_back="docomo_generic_jap_ver1" user_agent="DoCoMo/2.0" id="docomo_generic_jap_ver2">
@@ -7802,6 +7932,17 @@
         <capability value="F880iES" name="model_name"/>
       </group>
     </device>
+    <device fall_back="docomo_2_0_browser_ver1" user_agent="DoCoMo/2.0 SH02B" id="docomo_sh_02b_ver1" actual_device_root="true">
+      <group id="image_format">
+        <capability value="16777216" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="323" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="SH-02B" name="model_name"/>
+      </group>
+    </device>
     <device fall_back="docomo_generic_jap_ver2" user_agent="DoCoMo/2.0 SH705i2" id="docomo_sh705iii_ver1" actual_device_root="true">
       <group id="flash_lite">
         <capability value="1_1" name="flash_lite_version"/>
@@ -8536,6 +8677,14 @@
         <capability value="P501i" name="model_name"/>
       </group>
     </device>
+    <device fall_back="docomo_2_0_browser_ver1" user_agent="DoCoMo/2.0 P01B" id="docomo_p_01b_ver1" actual_device_root="true">
+      <group id="display">
+        <capability value="331" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="P-01B" name="model_name"/>
+      </group>
+    </device>
     <device fall_back="docomo_generic_jap_ver2" user_agent="DoCoMo/2.0 N705imyu" id="docomo_n705i_ver1" actual_device_root="true">
       <group id="flash_lite">
         <capability value="3_0" name="flash_lite_version"/>
@@ -8920,6 +9069,14 @@
       </group>
       <group id="product_info">
         <capability value="P702i" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="docomo_2_0_browser_ver1" user_agent="DoCoMo/2.0 F02B" id="docomo_f_02b_ver1" actual_device_root="true">
+      <group id="display">
+        <capability value="324" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="F-02B" name="model_name"/>
       </group>
     </device>
     <device fall_back="docomo_generic_jap_ver1" user_agent="DoCoMo/1.0/P506iC" id="docomo_p506icii_ver1" actual_device_root="true">
@@ -9528,6 +9685,17 @@
       </group>
       <group id="product_info">
         <capability value="P651ps" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="docomo_2_0_browser_ver1" user_agent="DoCoMo/2.0 SH01B" id="docomo_sh_01b_ver1" actual_device_root="true">
+      <group id="image_format">
+        <capability value="16777216" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="323" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="SH-01B" name="model_name"/>
       </group>
     </device>
     <device fall_back="docomo_generic_jap_ver2" user_agent="DoCoMo/2.0 D905i" id="docomo_d905i_ver1" actual_device_root="true">
@@ -10477,6 +10645,18 @@
       </group>
       <group id="product_info">
         <capability value="P503i" name="model_name"/>
+      </group>
+    </device>
+    <device fall_back="docomo_2_0_browser_ver1" user_agent="DoCoMo/2.0 F01B" id="docomo_f_01b_ver1" actual_device_root="true">
+      <group id="image_format">
+        <capability value="16777216" name="colors"/>
+      </group>
+      <group id="display">
+        <capability value="960" name="max_image_height"/>
+        <capability value="324" name="resolution_height"/>
+      </group>
+      <group id="product_info">
+        <capability value="F-01B" name="model_name"/>
       </group>
     </device>
     <device fall_back="docomo_generic_jap_ver1" user_agent="DoCoMo/1.0/P251iS" id="docomo_p251is_ver1" actual_device_root="true">
