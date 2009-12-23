@@ -60,11 +60,16 @@ class Jawurflex::WurflMapper
   end
 
   def capabilitities(b, handset, fallback, group_id, *names)
-    different = names.find_all {|n| send(n, handset) != send(n, fallback) }
+    different = names.find_all do |n| 
+      value = send(n, handset)
+      fallback_value = send(n, fallback)
+      !value.to_s.empty? && value != fallback_value
+    end
     unless different.empty?
       b.group(:id => group_id) do |b|
         different.each do |n|
-          b.capability(:name => n, :value => send(n, handset))
+          v = send(n, handset)
+          b.capability(:name => n, :value => v) unless v.to_s.empty?
         end
       end
     end
