@@ -4,6 +4,11 @@ WURFL patch containing data for Japanese handsets from the three major
 carriers (docomo, au, and SoftBank).  Additionally, tools for parsing the
 carrier documentation and generating the patch from it.
 
+== DEPENDENCIES
+
+* poppler version of pdftotext
+* rubygems: wurfl builder
+
 == LICENSE
 
 The source code for generating wurfl is licensed under the BSD License, as
