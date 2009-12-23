@@ -27,7 +27,10 @@ class Jawurflex::WurflGenerator
       :browser_height => 320, # The most common value is 350, but this is larger then display_height
       :display_height => 320,
       :display_width => 240,
-      :colors => 262144)
+      :colors => 262144,
+      :playback_3gpp => true,
+      :playback_vcodec_h263_0=> 10,
+      :playback_acodec_amr => "nb")
 
     base_au = Jawurflex::Handset::AuHandset.new(
       :wurfl_id => "kddi_wap20_generic",
@@ -37,7 +40,16 @@ class Jawurflex::WurflGenerator
       :browser_height => 320, # The most common value is 323, but this is larger then display_height
       :display_width => 240,
       :display_height => 320,
-      :colors => 65536)
+      :colors => 65536,
+      :playback_acode_qcelp => true,
+      :playback_3g2 => true,
+      :playback_acodec_amr => "nb",
+      :playback_acodec_aac => "lc",
+      :progressive_download => true,
+      :playback_vcodec_mp4_sp => "1",
+      :streaming_video => true,
+      :streaming_3g2 => true,
+      :streaming_video_size_limit => 140*1024)
 
     base_docomo_fallback = Jawurflex::Handset::DocomoHandset.new(
       :wurfl_id => "docomo_generic_jap_ver1",
@@ -46,14 +58,20 @@ class Jawurflex::WurflGenerator
       :browser_height => 144,
       :display_width => 240,
       :display_height => 320,
-      :colors => 65536)
+      :colors => 65536,
+      :streaming_video => false)
 
     base_docomo = Jawurflex::Handset::DocomoHandset.new(
       :wurfl_id => "docomo_generic_jap_ver2",
       :markup => [ "docomo_imode_html_3" ],
       :user_agent => "DoCoMo/2.0",
       :browser_height => 320,
-      :colors => 262144)
+      :colors => 262144,
+      :playback_3gpp => true,
+      :playback_acodec_amr => "nb",
+      :playback_acodec_aac => "lc",
+      :progressive_download => true,
+      :playback_vcodec_h264_bp => "1")
 
     base_docomo_2_0_browser = Jawurflex::Handset::DocomoHandset.new(
       :wurfl_id => "docomo_2_0_browser_ver1",
@@ -64,7 +82,13 @@ class Jawurflex::WurflGenerator
       :display_width => 480,
       :display_height => 854,
       :colors => 262144,
-      :flash_lite => "3.1")
+      :flash_lite => "3.1",
+      :playback_3gpp => true,
+      :playback_acodec_amr => true,
+      :playback_acodec_aac => "heaac",
+      :progressive_download => true,
+      :playback_vcodec_h264_bp => "1.3",
+      :streaming_video => false)
 
     b = Builder::XmlMarkup.new(:indent => 2, :target => target)
     xml = b.wurfl_patch do |b|

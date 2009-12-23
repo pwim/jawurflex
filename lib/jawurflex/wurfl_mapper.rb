@@ -31,6 +31,21 @@ class Jawurflex::WurflMapper
                      :xhtml_table_support => :xhtml_table_support)
   capabilitity_group("markup",
                      :markup => :preferred_markup)
+  capabilitity_group("playback",
+                     :playback_3gpp => :playback_3gpp,
+                     :playback_3g2 => :playback_3g2,
+                     :playback_acodec_amr => :playback_acodec_amr,
+                     :playback_acodec_aac => :playback_acodec_aac,
+                     :playback_acode_qcelp => :playback_acode_qcelp,
+                     :progressive_download => :progressive_download,
+                     :playback_vcodec_h264_bp => :playback_vcodec_h264_bp,
+                     :playback_vcodec_mp4_sp => :playback_vcodec_mp4_sp,
+                     :playback_vcodec_h263_0 => :playback_vcodec_h263_0)
+  capabilitity_group("streaming",
+                     :playback_vcodec_mp4_sp => :playback_vcodec_mp4_sp,
+                     :streaming_video => :streaming_video,
+                     :streaming_3g2 => :streaming_3g2,
+                     :streaming_video_size_limit => :streaming_video_size_limit)
 
   def wurfl_entry(b, handset, fallback, actual_device_root)
     h = { :user_agent => handset.user_agent,

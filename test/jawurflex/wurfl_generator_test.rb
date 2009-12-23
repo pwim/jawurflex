@@ -93,6 +93,42 @@ class WurflGeneratorTest < Test::Unit::TestCase
     end
   end
 
+  def test_docomo_generic_jap_ver1
+    device = @handsets["docomo_generic_jap_ver1"]
+    assert_equal "false", device["progressive_download"]
+    assert_equal "none", device["playback_acodec_amr"]
+    assert_equal "false", device["streaming_video"]
+  end
+
+  def test_docomo_generic_jap_ver2
+    device = @handsets["docomo_generic_jap_ver2"]
+    assert_equal "1", device["playback_vcodec_h264_bp"]
+    assert_equal "true", device["progressive_download"]
+    assert_equal "true", device["playback_3gpp"]
+    assert_equal "nb", device["playback_acodec_amr"]
+    assert_equal "lc", device["playback_acodec_aac"]
+    assert_equal "false", device["streaming_video"]
+  end
+
+  def test_softbank_generic
+    device = @handsets["softbank_generic"]
+    assert_equal "10", device["playback_vcodec_h263_0"]
+    assert_equal "true", device["playback_3gpp"]
+    assert_equal "nb", device["playback_acodec_amr"]
+  end
+
+  def test_kddi_wap20_generic
+    device = @handsets["kddi_wap20_generic"]
+    assert_equal "1", device["playback_vcodec_mp4_sp"]
+    assert_equal "true", device["progressive_download"]
+    assert_equal "true", device["playback_3g2"]
+    assert_equal "nb", device["playback_acodec_amr"]
+    assert_equal "lc", device["playback_acodec_aac"]
+    assert_equal "true", device["streaming_video"]
+    assert_equal "true", device["streaming_3g2"]
+    assert_equal "#{140*1024}", device["streaming_video_size_limit"]
+  end
+
   def bad_base_user_agent?(h)
     @uas ||= {
       "SoftBank/1.0/921P/PJP10/SN353701021200197 Browser/NetFront/3.4 Profile/MIDP-2.0 Configuration/CLDC-1.1" => true,
