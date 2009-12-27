@@ -89,7 +89,9 @@ class Jawurflex::Handset::DocomoHandset < Jawurflex::Handset
       end
 
       if columns[4] =~ /(\d+)\303\227(\d+)/
-        h.wallpaper_max_width, h.wallpaper_max_height = $1.to_i, $2.to_i
+        h.physical_width, h.physical_height = $1.to_i, $2.to_i
+      else
+        h.physical_width, h.physical_height = h.browser_width, h.browser_height
       end
 
       h.colors = columns[5].match(/\d+/)[0].to_i

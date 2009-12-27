@@ -21,9 +21,7 @@ class Jawurflex::WurflMapper
                      :physical_width => :resolution_width,
                      :physical_height => :resolution_height,
                      :browser_width => :max_image_width,
-                     :browser_height => :max_image_height,
-                     :wallpaper_max_width => :wallpaper_max_width,
-                     :wallpaper_max_height => :wallpaper_max_height)
+                     :browser_height => :max_image_height)
   capabilitity_group("product_info",
                      :brand_name => :brand_name,
                      :name => :model_name)

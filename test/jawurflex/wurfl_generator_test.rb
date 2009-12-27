@@ -55,7 +55,7 @@ class WurflGeneratorTest < Test::Unit::TestCase
     device = @handsets['kddi_pt35_ver1']
     assert_equal "230", device['max_image_width']
     assert_equal "324", device['max_image_height']
-    assert_equal "400", device['wallpaper_max_height']
+    assert_equal "400", device['resolution_height']
     assert_equal "KDDI-PT35 UP.Browser/6.2.0.15.1.1 (GUI) MMP/2.0", device.user_agent
   end
 
@@ -63,8 +63,8 @@ class WurflGeneratorTest < Test::Unit::TestCase
     device = @handsets['docomo_so905ics_ver1']
     assert_equal "240", device['max_image_width']
     assert_equal "368", device['max_image_height']
-    assert_equal "864", device['wallpaper_max_height']
-    assert_equal "480", device['wallpaper_max_width']
+    assert_equal "864", device['resolution_height']
+    assert_equal "480", device['resolution_width']
   end
 
   def test_f_10a
@@ -128,6 +128,18 @@ class WurflGeneratorTest < Test::Unit::TestCase
     assert_equal "true", device["streaming_video"]
     assert_equal "true", device["streaming_3g2"]
     assert_equal "#{140*1024}", device["streaming_video_size_limit"]
+  end
+  
+  %w[width height].each do |d|
+    %w[max_image resolution].each do |s|
+      capability = [s,d].join("_")
+      define_method "test_#{capability}_present" do
+        handsets = @handsets.find_all do |id, h|
+          !@base_handsets[id] && !h[capability]
+        end
+        assert_equal [], handsets.map {|a| a[0]}
+      end
+    end
   end
 
   def test_max_image_dimensions_less_than_resolution_dimensions

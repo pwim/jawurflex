@@ -25,7 +25,7 @@ class Jawurflex::Handset::AuHandset < Jawurflex::Handset
       h.device_id = name_to_device_id[h.name]
       raise "No matching device_id for #{h.name}" unless h.device_id
       h.user_agent = "KDDI-#{h.device_id}"
-      h.wallpaper_max_width, h.wallpaper_max_height = columns[5].split("\303\227").map {|s| s.to_i}
+      h.physical_width, h.physical_height = columns[5].split("\303\227").map {|s| s.to_i}
       h.browser_width, h.browser_height = columns[4].split("\303\227").map {|s| s.to_i}
       h.markup << "au_xhtml_mp"
       h.flash_lite = case columns[11]

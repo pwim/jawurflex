@@ -6,8 +6,7 @@ class Jawurflex::Handset
     :playback_acodec_aac, :progressive_download, :playback_vcodec_h264_bp,
     :playback_acode_qcelp, :progressive_download, :playback_vcodec_mp4_sp,
     :streaming_video, :streaming_3g2, :playback_3g2, 
-    :streaming_video_size_limit, :playback_vcodec_h263_0,
-    :wallpaper_max_width, :wallpaper_max_height
+    :streaming_video_size_limit, :playback_vcodec_h263_0
 
   def initialize(args={})
     args.each {|k,v| send("#{k}=", v)}
