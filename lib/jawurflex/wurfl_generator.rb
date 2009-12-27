@@ -24,9 +24,9 @@ class Jawurflex::WurflGenerator
       :markup => [ "softbank_xhtml_mp" ],
       :user_agent => "SoftBank/1.0",
       :browser_width => 240,
-      :browser_height => 320, # The most common value is 350, but this is larger then display_height
-      :display_height => 320,
-      :display_width => 240,
+      :browser_height => 320, # The most common value is 350, but this is larger then physical_height
+      :physical_height => 320,
+      :physical_width => 240,
       :colors => 262144,
       :playback_3gpp => true,
       :playback_vcodec_h263_0=> 10,
@@ -37,9 +37,9 @@ class Jawurflex::WurflGenerator
       :markup => [ "au_xhtml_mp" ],
       :user_agent => "KDDI",
       :browser_width => 232,
-      :browser_height => 320, # The most common value is 323, but this is larger then display_height
-      :display_width => 240,
-      :display_height => 320,
+      :browser_height => 320,
+      :wallpaper_max_width => 240,
+      :wallpaper_max_height => 320,
       :colors => 65536,
       :playback_acode_qcelp => true,
       :playback_3g2 => true,
@@ -56,8 +56,8 @@ class Jawurflex::WurflGenerator
       :markup => [ "docomo_imode_html_1" ],
       :browser_width => 240,
       :browser_height => 144,
-      :display_width => 240,
-      :display_height => 320,
+      :wallpaper_max_width => 240,
+      :wallpaper_max_height => 320,
       :colors => 65536,
       :streaming_video => false)
 
@@ -79,8 +79,8 @@ class Jawurflex::WurflGenerator
       :markup => [ "imode_browser_2_0_xhtml"],
       :browser_width => 240,
       :browser_height => 320,
-      :display_width => 480,
-      :display_height => 854,
+      :wallpaper_max_width => 480,
+      :wallpaper_max_height => 854,
       :colors => 262144,
       :flash_lite => "3.1",
       :playback_3gpp => true,

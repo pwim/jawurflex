@@ -6,8 +6,8 @@ class SoftbankHandsetTest < Test::Unit::TestCase
   def test_parse_handsets
     handsets = Jawurflex::Handset::SoftbankHandset.parse_handsets
     handset = handsets.find {|h| h.device_id == "831SH" }
-    assert_equal 400, handset.display_height
-    assert_equal 240, handset.display_width
+    assert_equal 400, handset.physical_height
+    assert_equal 240, handset.physical_width
     assert_equal [ "softbank_xhtml_mp" ], handset.markup
     assert_equal "3.0", handset.flash_lite
     assert_equal 350, handset.browser_height

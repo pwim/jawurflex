@@ -52,7 +52,7 @@ class Jawurflex::Handset::SoftbankHandset < Jawurflex::Handset
       if columns.size == 8
         model_name, jphone_name, jphone_display, jphone_colors, others = columns.map {|c| c.innerText }
         h = device_name_to_handset[strip_name(model_name)]
-        h.display_width, h.display_height = jphone_display.split("*").map {|s| s.to_i}
+        h.physical_width, h.physical_height = jphone_display.split("*").map {|s| s.to_i}
         h.colors = jphone_colors.match(/\d+/)[0].to_i
         h.device_id = jphone_name.strip
       end

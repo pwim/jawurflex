@@ -11,6 +11,10 @@ class AuHandsetTest < Test::Unit::TestCase
     h = ts25_handsets.first
     assert_equal "A1304T II", h.name
     assert_equal 65536, h.colors
+    assert_equal 144, h.browser_width
+    assert_equal 140, h.browser_height
+    assert_equal 144, h.wallpaper_max_width
+    assert_equal 176, h.wallpaper_max_height
 
     h = handsets.find {|h| h.name == "A1303SA" }
     assert_equal 26*10000, h.colors
@@ -20,6 +24,13 @@ class AuHandsetTest < Test::Unit::TestCase
 
     h = handsets.find {|h| h.name == "A5522SA" }
     assert_equal 262114, h.colors
+
+    h = handsets.find {|h| h.device_id == "PT35" }
+    assert_equal "NS02", h.name
+    assert_equal 230, h.browser_width
+    assert_equal 324, h.browser_height
+    assert_equal 240, h.wallpaper_max_width
+    assert_equal 400, h.wallpaper_max_height
   end
 end
 

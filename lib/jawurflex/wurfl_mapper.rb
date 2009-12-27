@@ -18,10 +18,12 @@ class Jawurflex::WurflMapper
   capabilitity_group("image_format",
                      :colors => :colors)
   capabilitity_group("display",
-                     :browser_width => :resolution_width,
-                     :browser_height => :resolution_height,
-                     :display_height => :max_image_height,
-                     :display_width => :max_image_width)
+                     :physical_width => :resolution_width,
+                     :physical_height => :resolution_height,
+                     :browser_width => :max_image_width,
+                     :browser_height => :max_image_height,
+                     :wallpaper_max_width => :wallpaper_max_width,
+                     :wallpaper_max_height => :wallpaper_max_height)
   capabilitity_group("product_info",
                      :brand_name => :brand_name,
                      :name => :model_name)
@@ -100,4 +102,5 @@ class Jawurflex::WurflMapper
   def flash_lite_version(handset)
     handset.flash_lite && handset.flash_lite.tr(".","_")
   end
+
 end

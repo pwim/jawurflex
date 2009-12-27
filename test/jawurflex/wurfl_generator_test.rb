@@ -22,19 +22,20 @@ class WurflGeneratorTest < Test::Unit::TestCase
     end
     @base_handsets = @@base_handsets
     @handsets = @@handsets
+    @patch_handests = @handsets.dup
   end
 
   def test_d501i
     device = @handsets['docomo_d501i_ver1']
     assert_equal "DoCoMo/1.0/D501i", device.user_agent
-    assert_equal "96", device["resolution_width"]
+    assert_equal "96", device["max_image_width"]
   end
 
   def test_n_08a
     device = @handsets['docomo_n_08a_ver1']
     assert_equal "DoCoMo/2.0 N08A3", device.user_agent
-    assert_equal "240", device["resolution_width"]
-    assert_equal "320", device["resolution_height"]
+    assert_equal "240", device["max_image_width"]
+    assert_equal "320", device["max_image_height"]
   end
 
   def test_n_06a
@@ -45,32 +46,32 @@ class WurflGeneratorTest < Test::Unit::TestCase
   def test_p_07a
     device = @handsets['docomo_p_07a_ver1']
     assert_equal "DoCoMo/2.0 P07A3", device.user_agent
-    assert_equal "240", device["resolution_width"]
-    assert_equal "331", device["resolution_height"]
+    assert_equal "240", device["max_image_width"]
+    assert_equal "331", device["max_image_height"]
     assert_equal "3_1", device["flash_lite_version"]
   end
 
   def test_pt35
     device = @handsets['kddi_pt35_ver1']
-    assert_equal "230", device['resolution_width']
-    assert_equal "324", device['resolution_height']
-    assert_equal "400", device['max_image_height']
+    assert_equal "230", device['max_image_width']
+    assert_equal "324", device['max_image_height']
+    assert_equal "400", device['wallpaper_max_height']
     assert_equal "KDDI-PT35 UP.Browser/6.2.0.15.1.1 (GUI) MMP/2.0", device.user_agent
   end
 
   def test_docomo_so905ics_ver1
     device = @handsets['docomo_so905ics_ver1']
-    assert_equal "864", device['max_image_height']
-    assert_equal "480", device['max_image_width']
-    assert_equal "240", device['resolution_width']
-    assert_equal "368", device['resolution_height']
+    assert_equal "240", device['max_image_width']
+    assert_equal "368", device['max_image_height']
+    assert_equal "864", device['wallpaper_max_height']
+    assert_equal "480", device['wallpaper_max_width']
   end
 
   def test_f_10a
     device = @handsets['docomo_f_10a_ver1']
     assert_equal "DoCoMo/2.0 F10A", device.user_agent
-    assert_equal "240", device["resolution_width"]
-    assert_equal "330", device["resolution_height"]
+    assert_equal "240", device["max_image_width"]
+    assert_equal "330", device["max_image_height"]
     assert_equal "3_0", device["flash_lite_version"]
     assert_equal "html_wi_imode_htmlx_2_2", device["preferred_markup"]
   end
@@ -78,8 +79,8 @@ class WurflGeneratorTest < Test::Unit::TestCase
   def test_width_and_height
     @handsets.each do |id, h|
       unless id =~ /generic/
-        assert !h["resolution_width"].to_s.empty?, "#{id} does not have width"
-        assert !h["resolution_height"].to_s.empty?, "#{id} does not have height"
+        assert !h["max_image_width"].to_s.empty?, "#{id} does not have width"
+        assert !h["max_image_height"].to_s.empty?, "#{id} does not have height"
       end
     end
   end
@@ -127,6 +128,17 @@ class WurflGeneratorTest < Test::Unit::TestCase
     assert_equal "true", device["streaming_video"]
     assert_equal "true", device["streaming_3g2"]
     assert_equal "#{140*1024}", device["streaming_video_size_limit"]
+  end
+
+  def test_max_image_dimensions_less_than_resolution_dimensions
+    handsets = @handsets.find_all do |id, h|
+      !@base_handsets[id] && 
+        %[width height].any? do |d|
+          %w[max_image resolution].all? {|s| h["#{s}_#{d}"]} &&
+            h["max_image_#{d}"] > h["resolution_#{d}"]
+        end
+    end
+    assert_equal [], handsets.map {|a| a[0]}
   end
 
   def bad_base_user_agent?(h)

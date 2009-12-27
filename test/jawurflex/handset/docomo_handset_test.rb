@@ -25,15 +25,19 @@ class DocomoHandsetTest < Test::Unit::TestCase
     assert_equal ["imode_xhtml_2_0", "imode_html_6_0", ], h.markup
     assert_equal 240, h.browser_width
     assert_equal 280, h.browser_height
-    assert_equal 240, h.display_width
-    assert_equal 320, h.display_height
+    assert_equal 240, h.max_wallpaper_width
+    assert_equal 320, h.max_wallpaper_height
 
     h = handsets.find {|h| h.device_id == "N-08A"}
     assert_equal ["imode_browser_2_0_xhtml"], h.markup
     assert_equal 240, h.browser_width
     assert_equal 320, h.browser_height
-    assert_equal 480, h.display_width
-    assert_equal 854, h.display_height
+    assert_equal 480, h.max_wallpaper_width
+    assert_equal 854, h.max_wallpaper_height
+
+    h = handsets.find {|h| h.device_id == "SO905iCS"}
+    assert_equal 480, h.max_wallpaper_width
+    assert_equal 864, h.max_wallpaper_height
 
     valid_xhtml_markup_types = ["1_0", "1_1", "2_0", "2_1", "2_2", "2_3" ].
       map {|i| "imode_xhtml_#{i}"}
