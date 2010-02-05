@@ -1,5 +1,7 @@
 = jawurflex
 
+NOTE: The WURFL patch has now been merged into the core wurfl, so this project is obseleted.
+
 WURFL patch containing data for Japanese handsets from the three major
 carriers (docomo, au, and SoftBank).  Additionally, tools for parsing the
 carrier documentation and generating the patch from it.
